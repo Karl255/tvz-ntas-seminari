@@ -1,10 +1,9 @@
-from binaryTree import Movie
+from binaryTree import *
 
 import fnmatch
 import random
 
 from basicBinaryTree import *
-from binaryTree import lr, dr, BinaryTree
 
 
 def searchInTree(root, item):
