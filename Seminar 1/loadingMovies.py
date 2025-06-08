@@ -1,6 +1,5 @@
 import pickle
 
-
 def load_movies_from_file(file_path, pickle_path=None):
     """Load movies from a tab-delimited text file, processing every 11th row starting from row 10.
     Optionally save/load from pickle file.

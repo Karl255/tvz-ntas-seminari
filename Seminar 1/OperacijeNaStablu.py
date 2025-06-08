@@ -65,10 +65,6 @@ def getMaxInTree(root, maxi=None):
         return maxi
 
 
-def ispisRotacijaKodDodavanja(tree, item):
-    tree.add(item, True)
-
-
 def stepenice(root, d=dict(), b=0):
     if root:
         if b < 10:
@@ -100,17 +96,22 @@ def usporediStabla(items):
     vals=items.copy()
     br = random.randint(1, len(vals) - 1)
     l = []
+
     for i in range(br):
         if len(vals)>0:
             l.append(vals.pop(random.randint(0, len(vals)-1)))
         else:
             l.append(vals.pop())
-    root = None
+
+    basicTreeRoot = None
+
     for item in l:
         item = Movie(item)
-        root = addItem(root, item)
-    myTree = BinaryTree()
+        basicTreeRoot = addItem(basicTreeRoot, item)
+
+    avlTree = BinaryTree()
+
     for i in l:
-        myTree.add(i)
-    print("Basic tree - ", root.height, "   :   ", end="")
-    print(myTree.root.height, " -  AVL tree")
+        avlTree.add(i)
+        
+    return basicTreeRoot.height, avlTree.root.height

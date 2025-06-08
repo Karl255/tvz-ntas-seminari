@@ -297,10 +297,10 @@ class BinaryTree:
             self.root = self.newNode(value)
         else:
             self.root = self.root.add(value, countRotation)
+
         if countRotation:
             global lr, dr
-            print("Broj lijevih rotacija: ",lr)
-            print("Broj desnih rotacija: ", dr)
+            return lr, dr
 
     def __contains__(self, target):
         """Check whether BST contains target value."""
