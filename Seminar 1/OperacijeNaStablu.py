@@ -19,18 +19,18 @@ def searchInTree(root, item):
     return "Doesn't exist!"
 
 
-def searchRankInTree(root, start, end, l=[]):
+def searchRangeInTree(root, start, end, l=[]):
     if root:
         if root.value.short.lower() >= start.lower() and root.value.short.lower() <= end.lower():
             l = [root.value]
             if root.left:
-                l = searchRankInTree(root.left, start, end) + l
+                l = searchRangeInTree(root.left, start, end) + l
             if root.right:
-                l = l + searchRankInTree(root.right, start, end)
+                l = l + searchRangeInTree(root.right, start, end)
         elif root.value.short.lower() < start.lower():
-            l = l + searchRankInTree(root.right, start, end)
+            l = l + searchRangeInTree(root.right, start, end)
         elif root.value.short.lower() > end.lower():
-            l = searchRankInTree(root.left, start, end) + l
+            l = searchRangeInTree(root.left, start, end) + l
 
         '''
         if root.value.short.lower() > start.lower() and root.value.short.lower()<end.lower():
