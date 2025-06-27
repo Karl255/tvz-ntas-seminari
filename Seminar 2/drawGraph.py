@@ -24,8 +24,8 @@ def draw_graph(g):
     nx.draw_networkx_labels(G, pos, font_size=12, font_weight='bold')
 
     # Dodavanje oznaka na bridove (možete koristiti bilo koji atribut)
-    edge_labels = nx.get_edge_attributes(G, 'oznaka')
-    #edge_labels = {(u, v): f"{d['udaljenost']} km" for u, v, d in G.edges(data=True)}
+    #edge_labels = nx.get_edge_attributes(G, 'oznaka')
+    edge_labels = {(u, v): f"{d['udaljenost']} km" for u, v, d in G.edges(data=True)}
     #edge_labels = {(u, v): f"{d['trajanje']} min" for u, v, d in G.edges(data=True)}
     #edge_labels = {(u, v): f"{d['oznaka']}\n{d['udaljenost']} km" for u, v, d in G.edges(data=True)}
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='red')

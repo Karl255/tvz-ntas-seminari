@@ -39,7 +39,7 @@ def ucitaj_excel_u_segmente(file):
 
 file = 'MREZA_CESTOVNIH_PRAVACA_CUSTOM.xlsx'
 ceste = ucitaj_excel_u_segmente(file)
-ispisMatrice(ceste)
+#ispisMatrice(ceste)
 
 '''
 for i in ceste:
@@ -50,16 +50,18 @@ for i in ceste:
     print("]")
 '''
 
-
 #draw_graph(ceste)
 
-#ispisNajkracegPuta(ceste, 'Zagreb', 'Split')
+#ispisNajkracegPuta(ceste, 'Gospić', 'Knin')
+
 
 graph = Graph(netezinskaInacica(ceste))
 
-#print("Dijametar:" ,graph.diameter())
-#print("Gustoća: ", graph.density())
-#for ver in graph:
-#    print(ver, ": ", graph.vertex_degree(ver))
+'''
+print("Dijametar:" ,graph.diameter())
+print("Gustoća: ", graph.density())
+for ver in graph:
+    print(ver, ": ", graph.vertex_degree(ver))
+'''
 
 #centralnosti(netezinskaInacica(ceste))
