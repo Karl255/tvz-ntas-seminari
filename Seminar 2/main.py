@@ -50,18 +50,29 @@ for i in ceste:
     print("]")
 '''
 
-#draw_graph(ceste)
-
-#ispisNajkracegPuta(ceste, 'Gospić', 'Knin')
-
+draw_graph(ceste)
+draw_graph(ceste, 'trajanje')
+'''
+ispisNajkracegPuta(ceste, 'Zagreb', 'Knin')
+ispisNajkracegPuta(ceste, 'Gospić', 'Knin')
+ispisNajkracegPuta(ceste, 'Rijeka', 'Virovitica')
+ispisNajkracegPuta(ceste, 'Petrinja', 'Imotski')
+'''
 
 graph = Graph(netezinskaInacica(ceste))
 
 '''
 print("Dijametar:" ,graph.diameter())
 print("Gustoća: ", graph.density())
+print("Stupnjevi: ")
+l=[]
 for ver in graph:
-    print(ver, ": ", graph.vertex_degree(ver))
+    #print(ver, ": ", graph.vertex_degree(ver))
+    l.append((ver, graph.vertex_degree(ver)))
+l = sorted(l, key=lambda x: x[1], reverse=True)
+for i in l:
+    print(i[0], ": ", i[1])
 '''
+
 
 #centralnosti(netezinskaInacica(ceste))

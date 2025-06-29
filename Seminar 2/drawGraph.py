@@ -2,7 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
-def draw_graph(g):
+def draw_graph(g, otezanost='udaljenost'):
     G = nx.DiGraph()  # Koristimo DiGraph jer su putevi usmjereni (možete koristiti nx.Graph() za neusmjereni graf)
 
     # Dodavanje čvorova i bridova
@@ -25,8 +25,10 @@ def draw_graph(g):
 
     # Dodavanje oznaka na bridove (možete koristiti bilo koji atribut)
     #edge_labels = nx.get_edge_attributes(G, 'oznaka')
-    edge_labels = {(u, v): f"{d['udaljenost']} km" for u, v, d in G.edges(data=True)}
-    #edge_labels = {(u, v): f"{d['trajanje']} min" for u, v, d in G.edges(data=True)}
+    if otezanost == 'udaljenost':
+        edge_labels = {(u, v): f"{d['udaljenost']} km" for u, v, d in G.edges(data=True)}
+    if otezanost == 'trajanje':
+        edge_labels = {(u, v): f"{d['trajanje']} min" for u, v, d in G.edges(data=True)}
     #edge_labels = {(u, v): f"{d['oznaka']}\n{d['udaljenost']} km" for u, v, d in G.edges(data=True)}
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='red')
 
